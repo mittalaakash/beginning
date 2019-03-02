@@ -1,22 +1,81 @@
+<!DOCTYPE html>
 <html>
 <head>
-        <title> Aakash Mittal </title>
-        <meta content="width=device-width, initial-scale=1" name="viewport">  
-        <meta name="theme-color" content="#1bbc9b"/>     
-        <link href="CSS/main.css" rel="stylesheet" >
-        
-    </head>
-    <body>
-        <header class="site-header">
-                <img class="profile-pic" src="https://scontent.fdel1-2.fna.fbcdn.net/v/t1.0-0/p370x247/48379106_2386775504727668_4172892570122190848_n.jpg?_nc_cat=107&_nc_ht=scontent.fdel1-2.fna&oh=14b7ed738137297c9ee2a865d3fe7f91&oe=5CEBA54E">
-            <div class="site-header-content">
-                <h1>Hey, I'm Aakash Mittal , I'm 22 years old, living in Jaipur, India.</h1>
-                <h3>I am a keen  learner,and learning multiple things at a time is my hobby.</h3>
-                <h5>This time I am taking my chances with Web Development and Trading Stocks.</h5>
-                <h7>Let's see how I am gonna do. Connect with me <a class="course-link" href="https://www.facebook.com/ash6599?epa=SEARCH_BOX">here. </a></h7>
-            </div> 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Personal Expense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center ;
+            align-items: center;
+            height: 100vh;          
+            background-image: url('https://i.ytimg.com/vi/xbjtcgWWbeU/maxresdefault.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            }
+            .btn {
+                background: transparent;
+                color: rgb(230, 21, 21);
+                border: 2px solid rgb(14, 3, 7);
+                height: 2rem ;
+                width: 3rem;
+                border-radius: 10px;
 
-        </header>
-    </body>
+
+            }
+    </style>
+</head>
+<body>
+    <h1>Balance</h1>
+    <h1 id="headingTotal">0</h1>
+    <input id="inputAmount" type="text"></input>
+    <div>    
+        <button id="btnAddExpense" class="btn">+</button>
+        <button id="butnSubExpense" class="btn">--</button>
+    </div>
+    <script>
+        const dispCount= document.querySelector('#headingTotal');
+        // init Expense 0
+        let totalExpense =0 ;
+        //on click add inputAmount to totalExpense 
+        function AddExpensetoTotal() {
+            // read value from input amount
+            const element= document.querySelector("#inputAmount") ;
+            const textAmount = element.value ;
+            // convert it to number
+            Expense = parseInt(textAmount,10)
+            // add that value to totalExpense
+            totalExpense=totalExpense+Expense;
+            console.log('your total expense is '+ totalExpense);
+            dispCount.textContent = totalExpense ;
+            
+        }
+        function SubExpenseTotal() {
+            // read value from input amount
+            const element2= document.querySelector("#inputAmount") ;
+            const textAmount = element2.value ;
+            // convert it to number
+            Expense = parseInt(textAmount,10)
+            // add that value to totalExpense
+            totalExpense=totalExpense-Expense;
+            console.log('your total expense is '+ totalExpense);
+            dispCount.textContent = totalExpense ;
+            
+        }
+        // get the button element
+        const element= document.querySelector("#btnAddExpense") ;
+        const element2= document.querySelector("#butnSubExpense") ;
+        
+        // listen to click
+       
+        element.addEventListener("click",AddExpensetoTotal, false)
+        element2.addEventListener("click",SubExpenseTotal, false)
+       
+    </script>
+</body>
 </html>
 
